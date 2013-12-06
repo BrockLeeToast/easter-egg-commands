@@ -48,6 +48,7 @@ public class EEC extends JavaPlugin{
 		fox[6] = "A-hee-ahee ha-hee!";
 		fox[7] = "A-oo-oo-oo-ooo!";
 		Player player = (Player) sender;
+		Location loc = player.getLocation();
 		if(commandLabel.equalsIgnoreCase("sendme")) {
 			player.sendMessage(ChatColor.GOLD + "Sent");
 		}
@@ -56,8 +57,16 @@ public class EEC extends JavaPlugin{
 		}
 		if(commandLabel.equalsIgnoreCase("fox")) {
 			player.sendMessage(ChatColor.GREEN + fox[getRandomNumber(0, fox.length - 1)]);
-			Location loc = player.getLocation();
 			player.playSound(loc, Sound.WOLF_HOWL, 0.5F, getRandomNumber(0, fox.length - 1));
+		}
+		if(commandLabel.equalsIgnoreCase("broken")) {
+			player.sendMessage(ChatColor.RED + "#BlameEndain");
+			player.playSound(loc, Sound.ITEM_BREAK, 0.5F, 1F);
+		}
+		if(commandLabel.equalsIgnoreCase("time")) {
+			player.sendMessage(ChatColor.BLUE + "People assume that time is a strict progression of cause to effect," +
+					" but actually from a non-linear, non-subjective viewpoint, it's more like a big ball" +
+					" of wibbly wobbly timey wimey...stuff.");
 		}
 		return true;
 	}
