@@ -1,0 +1,12 @@
+name: Easter Egg Commands
+main: strudel2010.EEC.EEC
+version: 1.0
+description: >
+             Easter Egg commands.
+commands:
+  sendme:
+    description: Send the player a Message.
+  cluck:
+    description: Chicken Scratch
+  fox:
+    description: What does the fox say?
