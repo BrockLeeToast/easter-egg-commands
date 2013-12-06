@@ -13,4 +13,4 @@ commands:
   broken:
     description: If something is broken, we blame Endain of course.
   time:
-    description: Wibbly Wobbly
+    description: Wibbly Wobbly Timey Wimey
