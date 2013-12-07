@@ -14,5 +14,5 @@ commands:
     description: If something is broken, we blame Endain of course.
   timey:
     description: Wibbly Wobbly Timey Wimey
-  kittycannon:
+  chickencannon:
     description: cat boom
