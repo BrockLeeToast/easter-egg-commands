@@ -10,20 +10,20 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginDescriptionFile;
-//import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class EEC extends JavaPlugin{
 	public final Logger logger = Logger.getLogger("Minecraft");
 	public static EEC plugin;
-	//public final MyPlayerListener pl = new MyPlayerListener();
+	public final MyPlayerListener pl = new MyPlayerListener();
 	
 	@Override
 	public void onEnable() {
 		PluginDescriptionFile pdfFile = this.getDescription();
 		this.logger.info(pdfFile.getName() + " Version " + pdfFile.getVersion() + " Has Been Endabled.");
-		//PluginManager pm = getServer().getPluginManager();
-		//pm.registerEvents(this.pl, this);
+		PluginManager pm = getServer().getPluginManager();
+		pm.registerEvents(this.pl, this);
 	}
 	
 	@Override
@@ -53,7 +53,7 @@ public class EEC extends JavaPlugin{
 			player.sendMessage(ChatColor.GOLD + "Sent");
 		}
 		if(commandLabel.equalsIgnoreCase("cluck")) {
-			player.sendMessage(ChatColor.MAGIC + "Cluck cluck");
+			player.sendMessage(ChatColor.GREEN + " " + args[0] + " " + args[1]);
 		}
 		if(commandLabel.equalsIgnoreCase("fox")) {
 			player.sendMessage(ChatColor.GREEN + fox[getRandomNumber(0, fox.length - 1)]);
@@ -63,11 +63,18 @@ public class EEC extends JavaPlugin{
 			player.sendMessage(ChatColor.RED + "#BlameEndain");
 			player.playSound(loc, Sound.ITEM_BREAK, 0.5F, 1F);
 		}
-		if(commandLabel.equalsIgnoreCase("time")) { 
+		if(commandLabel.equalsIgnoreCase("timey")) { 
 			player.sendMessage(ChatColor.BLUE + "People assume that time is a strict progression of cause to effect," +
 					" but actually from a non-linear, non-subjective viewpoint, it's more like a big ball" +
 					" of wibbly wobbly timey wimey...stuff.");
+			player.playSound(loc, Sound.PORTAL_TRAVEL, 0.5F, 10F);
+			player.playSound(loc, Sound.PORTAL_TRIGGER, 0.5F, 1F);
 		}
-		return true;
+		if(commandLabel.equalsIgnoreCase("kittycannon")) {
+			player.sendMessage(ChatColor.GOLD + "Meow...BOOM!");
+			player.playSound(loc, Sound.CAT_MEOW, 0.5F, 1F);
+			player.playSound(loc, Sound.EXPLODE, 0.5F, 1F);
+		}
+		return false;
 	}
 }

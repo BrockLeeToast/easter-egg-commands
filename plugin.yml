@@ -12,5 +12,7 @@ commands:
     description: What does the fox say?
   broken:
     description: If something is broken, we blame Endain of course.
-  time:
+  timey:
     description: Wibbly Wobbly Timey Wimey
+  kittycannon:
+    description: cat boom
