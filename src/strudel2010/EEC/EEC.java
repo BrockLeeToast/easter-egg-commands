@@ -8,10 +8,12 @@ import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.util.Vector;
 
 public class EEC extends JavaPlugin{
 	public final Logger logger = Logger.getLogger("Minecraft");
@@ -83,6 +85,8 @@ public class EEC extends JavaPlugin{
 			player.sendMessage(ChatColor.GOLD + "Cluck...BOOM!");
 			player.playSound(loc, Sound.CHICKEN_IDLE, 2F, 1F);
 			player.playSound(loc, Sound.EXPLODE, 0.5F, 1F);
+			Vector dir = new Vector (10, 1, 1);
+			loc.getWorld().spawnEntity(loc, EntityType.CHICKEN).setVelocity(loc.getDirection().multiply(4));
 		}
 		return false;
 	}
