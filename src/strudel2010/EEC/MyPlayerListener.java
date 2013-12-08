@@ -47,7 +47,7 @@ public class MyPlayerListener implements Listener {
 						players[i].playSound(players[i].getLocation(), Sound.WOLF_HOWL, 0.5F, getRandomNumber(0, fox.length - 1));
 					}
 				}
-			}, 0);
+			}, 1);
 		}
 		if(event.getMessage().toLowerCase().contains("broken") || event.getMessage().toLowerCase().contains("bug")) {
 			Bukkit.getScheduler().runTaskLater(this.plugin,  new Runnable() {
@@ -59,7 +59,12 @@ public class MyPlayerListener implements Listener {
 						players[i].playSound(players[i].getLocation(), Sound.ITEM_BREAK, 0.5F, 1F);
 					}
 				}
-			}, 0);
+			}, 1);
+		}
+		for(int i = 0; i < players.length; i++) {
+			if(event.getMessage().contains(players[i].getName())) {
+				players[i].playSound(players[i].getLocation(), Sound.LEVEL_UP, 1F, 1F);
+			}
 		}
 	}
 }
